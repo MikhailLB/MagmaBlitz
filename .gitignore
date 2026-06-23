@@ -1,0 +1,36 @@
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.g.dart
+*.freezed.dart
+
+# Android
+android/.gradle/
+android/.kotlin/
+android/local.properties
+android/app/debug/
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/gradle/
+android/build.gradle.kts.bak
+*.iml
+*.ipr
+*.iws
+
+# Keystore — NEVER commit to public repos
+android/app/*.keystore
+android/app/*.jks
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

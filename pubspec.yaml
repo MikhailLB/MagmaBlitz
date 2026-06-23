@@ -1,0 +1,50 @@
+name: magma_blitz
+description: "Magma Blitz - a volcanic chain-reaction puzzle game."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  webview_flutter: ^4.10.0
+  shared_preferences: ^2.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/bg.webp
+    - assets/logo.webp
+    - assets/icon.png
+    - assets/Vertical_Loading_Screen.webp
+    - assets/Horizontal_Loading_Screen.webp
+    - assets/magma_crystal.webp
+    - assets/magma_fireball_projectile.webp
+    - assets/power_amplifier_crystal.webp
+    - assets/rock.webp
+    - assets/shield_blocker_crystal.webp
+    - assets/transparent.png
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon.png"
+  # Full-bleed adaptive icon: the artwork fills the whole surface (background
+  # layer), with a transparent foreground so nothing is shrunk or padded.
+  adaptive_icon_background: "assets/icon.png"
+  adaptive_icon_foreground: "assets/transparent.png"
+  remove_alpha_ios: true
+  min_sdk_android: 21
