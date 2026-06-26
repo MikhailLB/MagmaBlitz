@@ -2,7 +2,7 @@ name: magma_blitz
 description: "Magma Blitz - a volcanic chain-reaction puzzle game."
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.1+3
 
 environment:
   sdk: ^3.12.2
@@ -12,8 +12,26 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
-  webview_flutter: ^4.10.0
-  shared_preferences: ^2.3.3
+
+  # Gray-flow stack (versions diversified from sibling apps in the slate).
+  appsflyer_sdk: 6.15.2
+  firebase_core: 3.15.1
+  firebase_messaging: 15.2.9
+  firebase_app_check: 0.3.2+9
+  flutter_local_notifications: 18.0.1
+  connectivity_plus: 6.1.3
+  http: 1.3.0
+  device_info_plus: 11.3.0
+  flutter_secure_storage: 9.2.4
+  shared_preferences: 2.5.2
+  webview_flutter: 4.10.0
+  webview_flutter_android: 4.9.0
+  video_player: 2.9.5
+  url_launcher: 6.3.1
+  package_info_plus: 8.3.0
+  # ⚠ Do NOT bump above 8.x — 10+ is Kotlin-only and clashes with the
+  # Flutter Kotlin support, breaking GeneratedPluginRegistrant.
+  file_picker: 8.1.4
 
 dev_dependencies:
   flutter_test:
@@ -29,22 +47,25 @@ flutter:
     - assets/bg.webp
     - assets/logo.webp
     - assets/icon.png
+    - assets/icon2.png
+    - assets/transparent.png
     - assets/Vertical_Loading_Screen.webp
     - assets/Horizontal_Loading_Screen.webp
+    - assets/Vertical_Notifications_Screen.webp
+    - assets/Horizontal_Notifications_Screen.webp
+    - assets/Vertical_Nowifi_Screen.webp
+    - assets/Horizontal_Nowifi_Screen.webp
     - assets/magma_crystal.webp
     - assets/magma_fireball_projectile.webp
     - assets/power_amplifier_crystal.webp
     - assets/rock.webp
     - assets/shield_blocker_crystal.webp
-    - assets/transparent.png
 
 flutter_launcher_icons:
   android: true
   ios: false
-  image_path: "assets/icon.png"
-  # Full-bleed adaptive icon: the artwork fills the whole surface (background
-  # layer), with a transparent foreground so nothing is shrunk or padded.
-  adaptive_icon_background: "assets/icon.png"
+  image_path: "assets/icon2.png"
+  adaptive_icon_background: "assets/icon2.png"
   adaptive_icon_foreground: "assets/transparent.png"
   remove_alpha_ios: true
-  min_sdk_android: 21
+  min_sdk_android: 30

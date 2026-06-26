@@ -25,6 +25,9 @@ android/build.gradle.kts.bak
 android/app/*.keystore
 android/app/*.jks
 
+# Firebase — contains API keys, do not commit
+android/app/google-services.json
+
 # IDE
 .idea/
 .vscode/

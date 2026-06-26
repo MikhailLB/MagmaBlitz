@@ -14,7 +14,29 @@ rootProject.layout.buildDirectory.value(newBuildDir)
 subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
+
+    // -----------------------------------------------------------------
+    // Force every Android library plugin to compile against the same
+    // compileSdk our app uses (36+).  Some plugins (file_picker 8.x,
+    // older firebase libs) hard-code compileSdk = 34, while their
+    // transitive deps require 36 — Gradle's CheckAarMetadata task
+    // otherwise aborts the build.
+    //
+    // The override MUST be registered BEFORE the
+    // evaluationDependsOn(":app") block below — once :app is
+    // evaluated it's already too late to attach afterEvaluate hooks.
+    // -----------------------------------------------------------------
+    afterEvaluate {
+        extensions
+            .findByType(com.android.build.gradle.LibraryExtension::class.java)
+            ?.apply {
+                if ((compileSdk ?: 0) < 36) {
+                    compileSdk = 36
+                }
+            }
+    }
 }
+
 subprojects {
     project.evaluationDependsOn(":app")
 }
