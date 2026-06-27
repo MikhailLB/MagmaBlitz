@@ -124,7 +124,7 @@ class _PortalStageState extends State<PortalStage>
     _web = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setUserAgent(agentClient.userAgent)
-      ..setBackgroundColor(MagmaColors.deepRock)
+      ..setBackgroundColor(Colors.black)
       ..setNavigationDelegate(NavigationDelegate(
         onPageStarted: (_) {
           if (mounted) setState(() => _spinning = true);
@@ -419,7 +419,7 @@ class _PortalStageState extends State<PortalStage>
         if (!didPop) await _handleBack();
       },
       child: Scaffold(
-        backgroundColor: MagmaColors.deepRock,
+        backgroundColor: Colors.black,
         resizeToAvoidBottomInset: false,
         body: Stack(
           fit: StackFit.expand,
@@ -430,7 +430,7 @@ class _PortalStageState extends State<PortalStage>
             ),
             if (_spinning)
               ColoredBox(
-                color: MagmaColors.deepRock.withValues(alpha: 0.55),
+                color: Colors.black.withValues(alpha: 0.55),
                 child: const Center(
                   child: CircularProgressIndicator(
                     valueColor:
