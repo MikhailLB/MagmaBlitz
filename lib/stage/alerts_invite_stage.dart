@@ -115,23 +115,27 @@ class _AlertsInviteStageState extends State<AlertsInviteStage> {
               ),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: SafeArea(
-                  child: landscape
-                      // Landscape: fixed-width column centred horizontally,
-                      // pulled close to the bottom edge.
-                      ? Padding(
+                child: landscape
+                    // Landscape: SafeArea without horizontal insets so
+                    // camera-notch padding doesn't shift the column off-centre.
+                    ? SafeArea(
+                        left: false,
+                        right: false,
+                        child: Padding(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.36,
                             child: _buildControls(true),
                           ),
-                        )
-                      // Portrait: full-width column with side margins.
-                      : Padding(
+                        ),
+                      )
+                    // Portrait: full-width column with side margins.
+                    : SafeArea(
+                        child: Padding(
                           padding: const EdgeInsets.fromLTRB(28, 0, 28, 38),
                           child: _buildControls(false),
                         ),
-                ),
+                      ),
               ),
             ],
           );
